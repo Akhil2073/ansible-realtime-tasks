@@ -1,0 +1,12 @@
+---
+# tasks file for gitjavarole
+#
+   - name: Install git on remote client servers
+     yum:
+       name: git
+       state: present
+
+   - name: Install java on all servers
+     yum:
+       name: java
+       state: present

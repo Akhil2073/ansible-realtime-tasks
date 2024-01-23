@@ -1,0 +1,25 @@
+---
+# tasks file for httpd
+#
+
+   - name: Install httpd on all servers
+     yum:
+       name: httpd
+       state: present
+
+   - name: start httpd service on  all servers
+     service:
+       name: httpd
+       state: started
+     tags: service_start
+
+   - name: status for httpd
+     shell: service httpd status
+     tags: service_start
+     register: serviceop
+
+   - name: display status for httpd
+     debug:
+       var: serviceop
+     tags: service_start
+
